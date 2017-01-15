@@ -1,0 +1,28 @@
+Redux
+
+- application state is stored in a single tree structure
+-formed out of maps and arrays
+- the state is isolated from the application behaviour, and can be analyzed purely as data
+
+Our App
+- collection of items to vote on called entries
+- vote -> pair => 2 items from entries collection
+- vote -> tally => 2 items from entries collection => 4,3
+- losing entry is thrown away and winning entry is returned to bottom of entries collection
+- repeat til winner is decided
+
+Immutable
+- state is an immutable tree
+- the state tree will never change
+- to change state. you need to produce another new state tree
+- apply a function that takes old state and returns new state
+- this allows you to keep a history of all the previous app states, allowing for easy (undo/redo)
+- most important thing is that with immutable data, functions are pure - they take and return data, nothing else, deterministic
+- allows for easy testing
+- numbers are immutable in a similar way, their state can't be modified, they can only be replace with a new number
+    ex. 42 ++ returns 43 ALL THE TIME
+- that same thing can be applied to data structures
+- An immutable List can for example store a list of movies. If we added a movie to the list we'd have to produce a new list that combines the old list with the new movie, while keeping the old state as is
+- this applies to maps too, and nested data structures, same principle throughout
+- these data structres are persistent, meaning that producing new versions is internally structured to be time efficient, unlike regular data structures.
+- Rich Hickey - immutability by convention doesn't exist
