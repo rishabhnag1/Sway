@@ -32,10 +32,13 @@ export function next(state) {
   //better to remove from old state than to return entirely new Map, just in case the state contains fields that you want to return with the winner, basically future proofing. always good practice to morph old state into new one
 }
 
-export function vote(state, entry) {
-  return state.updateIn(
-      ['vote', 'tally', entry], //auto traverses through tree to retrieve the entry
+export function vote(voteState, entry) {
+  return voteState.updateIn(
+      ['tally', entry], //auto traverses through tree to retrieve the entry
       0, //initializes value to zero if not already set
       tally => tally + 1 //increments
     )
 }
+
+export const INITIAL_STATE = Map();
+

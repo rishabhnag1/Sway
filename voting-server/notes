@@ -26,3 +26,25 @@ Immutable
 - this applies to maps too, and nested data structures, same principle throughout
 - these data structres are persistent, meaning that producing new versions is internally structured to be time efficient, unlike regular data structures.
 - Rich Hickey - immutability by convention doesn't exist
+
+Actions and Reducers
+-in redux you don't call core functions directly, there's a layer between called actions
+-action is just an object that stores a type key, and optional other values
+- the type value is passed through a generic function called a reducer which takes the action type and the state and invokes the appropriate function
+- the interesting part is you can actually pass in a collection of past states and REDUCE them to the current state
+- quite like a reduce callback function
+-essentially we can replay a collection of actions, and even pass actions as objects over the network as serialized JSON
+
+Reducer Composition
+- should pass pieces of state to functions rather than the whole thing, modularize it
+
+Redux Store
+- stores state of application over time
+- pass in your reducer function to the store and it will be intialized
+- you can dispatch actions and get the current state at any point
+-redux only stores the current state tree. That's it.
+- highly customizable
+- super low cost of integration
+
+Socket.IO
+- abstraction of websockets
