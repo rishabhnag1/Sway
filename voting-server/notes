@@ -48,3 +48,7 @@ Redux Store
 
 Socket.IO
 - abstraction of websockets
+- server need to tell clients about current state
+- this is done by emitting Socket event to all connected clients when something changes
+- you can SUBSCRIBE to a redux store
+- run a callback after an action is called that alerts a change has been made
