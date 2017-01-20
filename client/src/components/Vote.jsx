@@ -5,6 +5,7 @@ export default class Vote extends React.Component{
   constructor(props){
     super(props);
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+    console.log(this.props.hasVoted)
   }
 
   getPair() {
