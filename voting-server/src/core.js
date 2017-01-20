@@ -33,11 +33,15 @@ export function next(state) {
 }
 
 export function vote(voteState, entry) {
-  return voteState.updateIn(
-      ['tally', entry], //auto traverses through tree to retrieve the entry
-      0, //initializes value to zero if not already set
-      tally => tally + 1 //increments
-    )
+  if(voteState.get('pair').includes(entry)){
+    return voteState.updateIn(
+        ['tally', entry],
+        0,
+        tally => tally + 1
+    );
+  } else {
+    return voteState;
+  }
 }
 
 export const INITIAL_STATE = Map();
