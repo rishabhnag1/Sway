@@ -15,6 +15,9 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ["react-hot", "babel-loader"],
         include: path.join(__dirname, 'src')
+      }, {
+        test: /\.css$/,
+        loader: 'style!css!autoprefixer?browsers=last 2 versions'
       }
       ]},
   resolve: {

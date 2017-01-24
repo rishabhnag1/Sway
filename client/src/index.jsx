@@ -4,12 +4,15 @@ import {VotingContainer} from './components/Voting';
 import {Route, Router, hashHistory} from 'react-router';
 import {createStore, applyMiddleware} from 'redux';
 import reducer from './reducer';
-import {setState} from './action_creators';
+import {setState, setClientId} from './action_creators';
+import getClientId from './client_id';
 import remoteActionMiddleware from './remote_action_middleware';
 import {Provider} from 'react-redux';
 import App from './components/App';
 import io from 'socket.io-client';
 import {ResultsContainer} from './components/Results';
+
+require('./style.css');
 
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
 socket.on('state', state =>
@@ -20,6 +23,7 @@ const createStoreWithMiddleware = applyMiddleware(
     remoteActionMiddleware(socket)
 )(createStore);
 const store = createStoreWithMiddleware(reducer);
+store.dispatch(setClientId(getClientId()));
 
 const routes = <Route component={App}>
   <Route path="/results" component={ResultsContainer}/>

@@ -1,11 +1,11 @@
 import React from 'react';
+import {ConnectionStateContainer} from './ConnectionState';
 
-export default class App extends React.Component {
-  constructor(props){
-    super(props);
 
+export default React.createClass({
+  render: function() {
+    return <div>
+      {this.props.children}
+    </div>
   }
-  render() {
-    return this.props.children;
-  }
-}
+});
