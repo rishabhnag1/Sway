@@ -14,3 +14,4 @@ export default function startServer(store){
 }
 
 //TODO: optimize to send only parts of state, or sending only diffs
+

@@ -1,16 +1,10 @@
-import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import React from 'react/addons';
 
-export default class Winner extends React.Component {
-  constructor(props){
-    super(props);
-    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+export default React.createClass({
+  mixins: [React.addons.PureRenderMixin],
+  render: function() {
+    return <div className="winner">
+      Winner is {this.props.winner}!
+    </div>;
   }
-  render() {
-    return(
-      <div className="winner">
-        Winner is {this.props.winner}!
-      </div>
-    );
-  }
-}
+});

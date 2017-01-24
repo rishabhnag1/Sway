@@ -1,5 +1,4 @@
-import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import React from 'react/addons';
 import {connect} from 'react-redux';
 import Winner from './Winner';
 import * as actionCreators from '../action_creators';
@@ -7,7 +6,7 @@ import * as actionCreators from '../action_creators';
 export const VOTE_WIDTH_PERCENT = 8;
 
 export const Results = React.createClass({
-  mixins: [PureRenderMixin],
+  mixins: [React.addons.PureRenderMixin],
   getPair: function() {
     return this.props.pair || [];
   },

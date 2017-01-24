@@ -5,32 +5,39 @@ export function setClientId(clientId) {
   };
 }
 
-export function setState(state){
+export function setConnectionState(state, connected) {
+  return {
+    type: 'SET_CONNECTION_STATE',
+    state,
+    connected
+  };
+}
+
+export function setState(state) {
   return {
     type: 'SET_STATE',
     state
   };
 }
 
-export function setConnectionState(state, connected) {
-    return {
-          type: 'SET_CONNECTION_STATE',
-          state,
-      connected
-    };
-  }
-
-export function vote(entry){
+export function vote(entry) {
   return {
     meta: {remote: true},
     type: 'VOTE',
     entry
-  }
+  };
 }
 
 export function next() {
   return {
     meta: {remote: true},
     type: 'NEXT'
+  };
+}
+
+export function restart() {
+  return {
+    meta: {remote: true},
+    type: 'RESTART'
   };
 }
