@@ -52,3 +52,63 @@ Socket.IO
 - this is done by emitting Socket event to all connected clients when something changes
 - you can SUBSCRIBE to a redux store
 - run a callback after an action is called that alerts a change has been made
+
+JSDOM
+- create js versions of document and window objects that are usually provided by browser
+- put them on global object so React will discover them
+- more efficient testing than PhantomJS
+- essentially creates a fake DOM on nodeJS backend
+
+React and react-hot-loader
+- with redux and immutatble you can create dumb stateless components with all props
+- so component state is stored inside Redux store
+- react hot loader allows for hot reloading without losing state
+
+Immutable Data in React
+- if we use only immutable data as props, then React doesn't need to do a deep evaluation of the changes
+- we know that if we put a particular data set in, then the UI will always be rendered that way, so we only need to check if the props is pointing to a different value
+- can use purerendermixin to do this shallow search
+
+React Router
+- used to implement routing
+- use root route component to define common styles
+
+Client Side Redux
+- this is where redux is more commonly used
+- essentially storing the same stuff as on the server, except for the hasVoted flag to render the UI differently
+- think of actions and reducers based on things that could cause the state to change while application is running
+- user interactions - clicks vote button on voting page, or next button on results page
+- changes from the server
+- we used socketio to emit a state event
+- should use client action to recieve state snapshot from server and merge it into client
+- we'll be getting regular JS DS from snapshot since that's all redux allows, so we need to convert to immutable DS
+
+Getting Data from Redux to React
+- redux store holds immutable application state
+- need to get latest data from store to components and react would use pure render mixin to determine which parts of UI need to re-render
+- can use react-redux to do this
+- maps store state into component props
+- maps actions into component callback props
+- need to wrap top level component in Provider component whih connects component tree to a redux store
+- need to determine whih components need to be wired up with data from store, usually the high level components
+- can use connect method to do this wiring up
+- connect(mapStateToProps)(SomeComponent)
+- mapping function maps state from redux into props
+- these props are connected to the component that's passed in
+
+Setting up Socket.IO on the Client
+- server can take incoming socket connections and emit voting state back
+-need to configure client redux store to dispatch incoming data
+
+Connect
+- react redux can be used to wire up output actions to store
+- Action creators - factory functions that return an action object
+- essentially encapsulates the actions into a defined set of functions
+- action creators can be connected to components as callback props
+- if the callback prop and action creator have the same name and arguments, then react-redux connect will make the connection for us
+
+React MiddleWare
+-need to send clientside Vote action to the server so that it dispatches to BOTH stores
+- Redux middleware - way to tap into actions that are being dispatched to redux stores
+- function that gets invoked when action is dispatched, before the action hits the reducer and state
+- we can use this to send client-side actions to the server
