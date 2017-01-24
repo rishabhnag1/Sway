@@ -1,6 +1,6 @@
 #SWAY - Live Voting Application 
 
-A real time voting application built with React/Redux/React Router on the client side, and Node and Redux on the back end. 
+A real time voting application built with Webpack/React/Redux/React Router on the client side, and Node and Redux on the back end. 
 
 #Features
 - Client and server applications with synchronized redux stores in both systems
