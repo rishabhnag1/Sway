@@ -5,7 +5,7 @@ A real time voting application built with React/Redux/React Router on the client
 #Features
 - Client and server applications with synchronized redux stores in both systems
 - Uses ImmutableJS and Redux to allow for deterministic components and methods, with unidirectional data flow and pure rendering (PureRenderMixin)
-- Seperate endpoint for voting operator(/results) and voters
+- Seperate endpoint for voting operator and voters
 - SocketIO application allowing for multiple voters and real-time results
 
 # Installation/Usage
