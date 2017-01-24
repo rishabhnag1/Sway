@@ -21,7 +21,7 @@ A real time voting application built with React/Redux/React Router on the client
   webpack-dev-server
 
 3) Navigate to http://localhost:8080/ to view the voting platform
-Navigate to http://localhost:8080/#/results
+Navigate to http://localhost:8080/#/results to view the results and trigger the next vote (hit next at the bottom)
 
 4) Begin voting!
 
